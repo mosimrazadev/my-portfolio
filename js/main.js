@@ -1,14 +1,82 @@
   document.addEventListener('DOMContentLoaded', () => {
 
-    // Handle active nav link on click
-  const navLinks = document.querySelectorAll('.nav-link');
+// ===== NAVBAR ACTIVE LINK + MOBILE MENU =====
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(nav => nav.classList.remove('active'));
-      link.classList.add('active');
-    });
+const navLinks = document.querySelectorAll(".nav-link");
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navLinks");
+const menuIcon = menuToggle.querySelector("i");
+
+// ===== TOGGLE MENU =====
+
+menuToggle.addEventListener("click", (e) => {
+
+  e.stopPropagation();
+
+  navMenu.classList.toggle("active");
+
+  // Change icon
+  if (navMenu.classList.contains("active")) {
+
+    menuIcon.classList.remove("ri-menu-line");
+    menuIcon.classList.add("ri-close-line");
+    
+
+  } else {
+
+    menuIcon.classList.remove("ri-close-line");
+    menuIcon.classList.add("ri-menu-line");
+
+  }
+
+});
+
+// ===== CLOSE MENU WHEN CLICK NAV LINK =====
+
+navLinks.forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    navLinks.forEach(nav => nav.classList.remove("active"));
+    link.classList.add("active");
+
+    navMenu.classList.remove("active");
+
+    menuIcon.classList.remove("ri-close-line");
+    menuIcon.classList.add("ri-menu-line");
+
   });
+
+});
+
+// ===== CLOSE WHEN CLICK OUTSIDE =====
+
+document.addEventListener("click", (e) => {
+
+  const clickedInsideMenu = navMenu.contains(e.target);
+  const clickedMenuBtn = menuToggle.contains(e.target);
+
+  if (!clickedInsideMenu && !clickedMenuBtn) {
+
+    navMenu.classList.remove("active");
+
+    menuIcon.classList.remove("ri-close-line");
+    menuIcon.classList.add("ri-menu-line");
+
+  }
+
+});
+
+// ===== CLOSE MENU ON SCROLL =====
+
+window.addEventListener("scroll", () => {
+
+  navMenu.classList.remove("active");
+
+  menuIcon.classList.remove("ri-close-line");
+  menuIcon.classList.add("ri-menu-line");
+
+});
 
     // === Load HTML sections dynamically ===
     const sections = [
@@ -32,6 +100,7 @@
           // Initialize logic after content loads
           if (file === 'about') initReadMoreToggle();
           if (file === 'skills') initSkillBars();
+          if (file === 'projects') initProjectSlider();
           if (file === 'contact') {
             import('/js/form.js')
               .then(module => {
@@ -105,42 +174,186 @@
 
     if (typing) typeEffect();
 
-    // === Read More Toggle ===
-    function initReadMoreToggle() {
-      const moreContent = document.getElementById('moreContent');
-      const readMoreBtn = document.getElementById('readMoreBtn');
+// === Read More Toggle ===
+function initReadMoreToggle() {
 
-      if (!moreContent || !readMoreBtn) return;
+  const moreContent = document.getElementById('moreContent');
+  const readMoreBtn = document.getElementById('readMoreBtn');
+  const aboutContainer = document.querySelector('.about.container');
+  const aboutSection = document.getElementById('about');
 
-      // Apply transition
-      moreContent.style.overflow = 'hidden';
-      moreContent.style.transition = 'max-height 0.5s ease';
-      moreContent.style.maxHeight = '0px';
+  if (!moreContent || !readMoreBtn || !aboutContainer) return;
 
-      readMoreBtn.addEventListener('click', () => {
-        const isExpanded = moreContent.classList.toggle('expanded');
+  readMoreBtn.addEventListener('click', () => {
 
-        if (isExpanded) {
-          moreContent.style.maxHeight = moreContent.scrollHeight + "px";
-          readMoreBtn.textContent = "Read Less";
-        } else {
-          moreContent.style.maxHeight = "0px";
-          readMoreBtn.textContent = "Read More";
-        }
-      });
+    moreContent.classList.toggle('expanded');
+    aboutContainer.classList.toggle('expanded-layout');
+
+    if (moreContent.classList.contains('expanded')) {
+
+      readMoreBtn.textContent = "Read Less";
+
+    } else {
+
+      readMoreBtn.textContent = "Read More";
+
+      // Scroll back to About section smoothly
+setTimeout(() => {
+
+  const navbarOffset = 100;
+
+  const top =
+    aboutSection.offsetTop - navbarOffset;
+
+  window.scrollTo({
+    top,
+    behavior: "smooth"
+  });
+
+}, 450);
+
     }
 
-    // === Skills Bar Animation ===
-    function initSkillBars() {
-      const skillSpans = document.querySelectorAll(".bar span");
+  });
 
-      skillSpans.forEach((bar) => {
+}
+
+
+// === Skills Bar Animation ===
+function initSkillBars() {
+  const skillSpans = document.querySelectorAll(".bar span");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
         const width = bar.getAttribute("data-width");
-        bar.style.width = "0";
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100);
-      });
+
+        bar.style.width = width;
+
+        observer.unobserve(bar);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  skillSpans.forEach((bar) => {
+    bar.style.width = "0";
+    observer.observe(bar);
+  });
+}
+
+
+
+// ===== INFINITE PROJECT SLIDER =====
+
+function initProjectSlider() {
+
+  const container = document.querySelector(".projects-container");
+
+  const prevBtn = document.getElementById("scrollLeft");
+  const nextBtn = document.getElementById("scrollRight");
+
+  if (!container || !prevBtn || !nextBtn) return;
+
+  // Duplicate cards
+  // Prevent multiple duplication
+if (!container.dataset.cloned) {
+
+  const cards = [...container.children];
+
+  // Duplicate 4 times
+  for (let i = 0; i < 4; i++) {
+
+    cards.forEach(card => {
+
+      const clone = card.cloneNode(true);
+
+      clone.classList.add("cloned-card");
+
+      container.appendChild(clone);
+
+    });
+
+  }
+
+  container.dataset.cloned = "true";
+
+}
+
+  let animationFrame;
+  let speed = 1;
+
+
+
+  // Pause on Hover
+  container.addEventListener("mouseenter", () => {
+
+    cancelAnimationFrame(animationFrame);
+
+  });
+
+  container.addEventListener("mouseleave", () => {
+
+    autoScroll();
+
+  });
+
+let isInteracting = false;
+
+// Buttons
+nextBtn.addEventListener("click", () => {
+
+  isInteracting = true;
+
+  container.scrollBy({
+    left: 380,
+    behavior: "smooth"
+  });
+
+  setTimeout(() => {
+    isInteracting = false;
+  }, 700);
+
+});
+
+prevBtn.addEventListener("click", () => {
+
+  isInteracting = true;
+
+  container.scrollBy({
+    left: -380,
+    behavior: "smooth"
+  });
+
+  setTimeout(() => {
+    isInteracting = false;
+  }, 700);
+
+});
+
+  // Smooth Infinite Scroll
+function autoScroll() {
+
+  if (!isInteracting) {
+
+    container.scrollLeft += speed;
+
+    if (container.scrollLeft >= container.scrollWidth / 2) {
+
+      container.scrollLeft = 0;
+
     }
+
+  }
+
+  animationFrame = requestAnimationFrame(autoScroll);
+
+}
+
+  autoScroll();
+
+}
     
   });

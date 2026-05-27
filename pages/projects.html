@@ -1,56 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/styles/projects.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/projects.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section class="projects-section">
+      <h2 class="section-title">My <span>Projects</span></h2>
+      <div class="project-nav">
+        <button id="scrollLeft">&#10094;</button>
+        <button id="scrollRight">&#10095;</button>
+      </div>
 
-  <section class="projects-section">
-    <h2 class="section-title">My <span>Projects</span></h2>
-    <p class="section-subtitle">A showcase of the projects I have worked on, highlighting my skills and experience in various technologies</p>
-  
-    <div class="projects-container">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <img src="assets/portfolio.jpg" alt="Personal Portfolio" />
-        <div class="project-content">
-          <h3>Personal Portfolio Website</h3>
-          <p>A clean and responsive developer portfolio showcasing skills, projects, and contact details with dark/light mode.</p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive</span>
+      <div class="projects-container">
+        <!-- Project 1 -->
+        <div class="project-card featured-project">
+          <img src="assets/bookmybanquets.jpg" alt="Personal Portfolio" />
+          <div class="project-content">
+            <h3>BookMyBanquets – Event Booking Platform</h3>
+            <p>
+              A responsive banquet booking website for exploring and booking
+              venues for weddings, parties, and events.
+            </p>
+            <div class="tech-stack">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://www.bookmybanquets.in" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Live Demo
+            </a>
+
+            <a href="https://github.com/mosimrazadev" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="assets/planMyRide.jpg" alt="PlanMyRide" />
+          <div class="project-content">
+            <h3>PlanMyRide – Smart Travelling Website </h3>
+            <p>
+              A travel booking platform for exploring cities, booking rides, and
+              planning holiday packages with modern UI.
+            </p>
+            <div class="tech-stack">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>React.js</span><span>Express.js</span><span>MongoDB</span
+              ><span>Node.js</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://planmyride.netlify.app" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Live Demo
+            </a>
+
+            <a href="https://github.com/mosimrazadev/planmyride" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <img src="assets/portfolio.jpg" alt="Personal Portfolio" />
+          <div class="project-content">
+            <h3>Personal Portfolio – Web Developer Showcase</h3>
+            <p>
+              A clean and responsive developer portfolio showcasing skills,
+              projects, and contact details with dark/light mode.
+            </p>
+            <div class="tech-stack">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Dark Mode</span>
+              <span>Responsive</span>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://mosimportfolio.netlify.app" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Live Demo
+            </a>
+
+            <a href="https://github.com/mosimrazadev/my-portfolio" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <img src="assets/note-app.jpg" alt="Note App" />
+          <div class="project-content">
+            <h3>Note App – Notes Management Platform</h3>
+            <p>
+              A sleek note-taking application allowing users to add, edit, and
+              delete notes with persistent local storage.
+            </p>
+            <div class="tech-stack">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>React.js</span><span>Node.js</span><span>MongoDB</span
+              ><span>Express</span>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://mosimportfolio.netlify.app" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Live Demo
+            </a>
+
+            <a href="https://github.com/your-repo" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
           </div>
         </div>
       </div>
-  
-      <!-- Project 2 -->
-      <div class="project-card">
-        <img src="assets/note-app.jpg" alt="Note App" />
-        <div class="project-content">
-          <h3>Note App – Like Google Notes</h3>
-          <p>A sleek note-taking application allowing users to add, edit, and delete notes with persistent local storage.</p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Project 3 -->
-      <div class="project-card">
-        <img src="assets/planMyRide.jpg" alt="PlanMyRide" />
-        <div class="project-content">
-          <h3>PlanMyRide – Travelling Website</h3>
-          <p>A travel booking platform for exploring cities, booking rides, and planning holiday packages with modern UI.</p>
-          <div class="tech-stack">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Express</span><span>MongoDB</span><span>Node.js</span><span>API</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  
-</body>
+    </section>
+  </body>
 </html>

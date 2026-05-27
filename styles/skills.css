@@ -1,80 +1,249 @@
 .skills-section {
-    color: #fff;
-    margin-top: 15vh;
+    color: #111;
+    margin-top: 8vh;
+    font-family: "Poppins", sans-serif;
 }
 
-.skills-section h2{
-    color: #1e293b;
+/* ===== TITLE ===== */
+
+.skills-section h2 {
+    color: #111;
 }
 
-body.dark .skills-section h2{
+body.dark .skills-section h2 {
     color: #fff;
 }
-  
+
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
-  
+
 .section-title span {
-    color: #3b82f6;
-    text-decoration: underline;
-    text-underline-offset: 6px;
+    background: linear-gradient(
+        to right,
+        #ff9a3d,
+        #ff7300,
+        #ff5200
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-  
+
+/* ===== CONTAINER ===== */
+
 .skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 25px;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 55px;
 }
-  
+
+/* ===== PREMIUM GLASS CARD ===== */
+
 .skills-box {
-    background-color: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 140, 30, 0.85),
+        rgba(255, 115, 0, 0.92),
+        rgba(201, 85, 0, 0.92)
+    );
+
+    padding: 0 22px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+
+    border-radius: 28px;
+
     width: 100%;
-    max-width: 500px;
-    border: 1px solid #334155;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 390px;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    transition: all 0.4s ease;
+
+    box-shadow:
+        0 10px 30px rgba(151, 68, 0, 0.815),
+        0 0 40px rgba(255,115,0,0.12),
+        inset 0 1px 1px rgba(255,255,255,0.15);
 }
+
+/* premium shine */
+
+.skills-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+    right: -70px;
+
+    width: 220px;
+    height: 220px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 50%;
+}
+
+/* subtle glow */
+
+.skills-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0.05),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* HOVER */
 
 .skills-box:hover {
-    transform:translateY(-10px);
-    box-shadow: 0 0 40px #0f6fff;
+
+    transform: translateY(-10px) scale(1.02);
+
+    box-shadow:
+        0 18px 45px rgba(255, 115, 0, 0.692),
+        0 0 70px rgba(255,140,0,0.18);
 }
 
+/* ===== BOX TITLE ===== */
+
 .skills-box h3 {
-    font-size: 1.4rem;
-    margin-bottom: 25px;
-    color: #fff;
+
+    font-size: 1.45rem;
+
+    margin-bottom: 12px;
+
+    color: #000000;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    position: relative;
+    z-index: 2;
 }
-  
+
+/* ===== SKILL BAR ===== */
+
 .skill-bar {
-    margin-bottom: 20px;
+
+    margin-bottom: 10px;
+
+    position: relative;
+    z-index: 2;
 }
-  
+
+.skill-bar:last-child {
+    margin-bottom: 0;
+}
+
+/* text colors improved */
+
 .skill-bar .info {
+
     display: flex;
+
     justify-content: space-between;
-    margin-bottom: 5px;
+
+    margin-bottom: 8px;
+
     font-weight: 500;
+
+    color: #000000;
+
+    font-size: 0.95rem;
 }
-  
+
+/* ===== BAR BACKGROUND ===== */
+
 .bar {
-    background: #334155;
-    height: 10px;
-    border-radius: 8px;
+
+    background: rgba(0,0,0,0.22);
+
+    height: 9px;
+
+    border-radius: 30px;
+
     overflow: hidden;
+
+    position: relative;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,0.18);
 }
-  
+
+/* ===== FILL ===== */
+
 .bar span {
+
     display: block;
+
     height: 100%;
+
     width: 0;
-    background: #3b82f6;
-    border-radius: 8px;
-    transition: width 1s ease-in-out;
+
+    background: linear-gradient(
+        to right,
+        #e6e6e6,
+        #dfc1ad
+    );
+
+    border-radius: 30px;
+
+    transition: width 1.8s ease;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.55),
+        0 0 20px rgba(255,255,255,0.25);
 }
-  
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+    .section-title {
+        font-size: 2.3rem;
+    }
+
+    .skills-container {
+        gap: 18px;
+        margin-top: 38px;
+    }
+
+    .skills-box {
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .skills-box h3 {
+        font-size: 1.25rem;
+    }
+
+    .skill-bar .info {
+        font-size: 0.88rem;
+    }
+}
