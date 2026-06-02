@@ -388,7 +388,7 @@ background: rgba(255,255,255,0.08);
 @media (max-width: 768px) {
 
     .projects-section {
-        margin-top: -1rem;
+        margin-top: -4rem;
 
         overflow: hidden;
     }
@@ -501,7 +501,7 @@ body.dark .featured-project {
 @media (max-width: 480px) {
 
     .projects-section {
-        margin-top: -6rem;
+        margin-top: -8rem;
     }
 
     .project-nav {
