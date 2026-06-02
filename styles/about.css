@@ -236,6 +236,7 @@ body.dark .about-content strong {
 
   #about-section{
     padding-top: 0 !important;
+    padding-top: 1rem !important;
   }
 
   .about.container{
@@ -296,6 +297,7 @@ body.dark .about-content strong {
 
   .about.container{
     gap: 0.2rem;
+    padding-top: 1.2rem !important;
   }
 
   .about .section-title{

@@ -101,3 +101,8 @@
     0 0 80px rgba(255, 102, 0, 0.12);
   }
 
+@media (max-width: 480px) {
+  .contact-section {
+    margin-top: -5rem;
+  }
+}
