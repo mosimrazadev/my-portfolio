@@ -225,13 +225,18 @@ body.dark .skills-section h2 {
 
 @media (max-width: 768px) {
 
+
+    .skills-section {
+        margin-top: 1rem;
+    }
+
     .section-title {
         font-size: 2.3rem;
     }
 
     .skills-container {
         gap: 18px;
-        margin-top: 38px;
+        margin-top: 30px;
     }
 
     .skills-box {
@@ -246,4 +251,13 @@ body.dark .skills-section h2 {
     .skill-bar .info {
         font-size: 0.88rem;
     }
+}
+
+
+@media (max-width: 480px) {
+
+    .skills-section {
+        margin-top: 0.5rem;
+    }
+
 }
