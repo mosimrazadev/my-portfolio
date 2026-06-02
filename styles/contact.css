@@ -1,12 +1,11 @@
 .contact-section {
     background: linear-gradient(135deg, #1a120b, #2b1b12, #0f0f0f);
     padding: 20px 10px;
-    margin-top: 5px;
     border-radius: 15px;
     text-align: center;
     color: #fff;
     border: 1px solid rgba(255, 140, 0, 0.15);
-  }
+}
   
   .contact-section::before {
   content: "";
@@ -103,6 +102,11 @@
 
 @media (max-width: 480px) {
   .contact-section {
-    margin-top: -4rem;
+    margin-top: 0.5rem;
   }
+
+  .contact-section {
+    padding: 20px 20px;
+  }
+
 }

@@ -118,30 +118,34 @@ window.addEventListener("scroll", () => {
         });
     });
 
-    // === Dark Mode Toggle ===
-    const toggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    const moonIcon = document.getElementById('moonIcon');
-    const sunIcon = document.getElementById('sunIcon');
 
-    const setIcon = (theme) => {
-      moonIcon.style.display = theme === 'dark' ? 'none' : 'inline-block';
-      sunIcon.style.display = theme === 'dark' ? 'inline-block' : 'none';
-    };
+// === Dark Mode Toggle ===
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark');
-      setIcon('dark');
-    } else {
-      setIcon('light');
-    }
+const toggle = document.getElementById('darkModeToggle');
+const body = document.body;
+const moonIcon = document.getElementById('moonIcon');
+const sunIcon = document.getElementById('sunIcon');
 
-    toggle.addEventListener('click', () => {
-      const isDark = body.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      setIcon(isDark ? 'dark' : 'light');
-    });
+// Default = Dark Mode
+body.classList.add('dark');
+
+const setIcon = (theme) => {
+  moonIcon.style.display = theme === 'dark' ? 'none' : 'inline-block';
+  sunIcon.style.display = theme === 'dark' ? 'inline-block' : 'none';
+};
+
+setIcon('dark');
+
+// Toggle Light/Dark
+toggle.addEventListener('click', () => {
+
+  const isDark = body.classList.toggle('dark');
+
+  setIcon(isDark ? 'dark' : 'light');
+
+});
+
+
 
     // === Typing Effect ===
     const typing = document.getElementById('typing');

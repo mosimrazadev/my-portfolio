@@ -59,7 +59,7 @@ body.dark{
   align-items:center;
   justify-content:space-between;
 
-  padding:22px 8%;
+  padding:18px 8%;
 
   background:f8f8f8;
   backdrop-filter:blur(12px);
@@ -375,6 +375,10 @@ body.dark .toggle-switch{
 }
 
 body.dark .switch-thumb{
+  transform:translateX(0);
+}
+
+body:not(.dark) .switch-thumb{
   transform:translateX(30px);
 }
 
@@ -384,6 +388,9 @@ body.dark .switch-thumb{
   padding:100px 8%;
 }
 
+.contact-page-section {
+  padding: 25px 8% 100px 8%;
+}
 /* ================= TABLET ================= */
 
 @media(max-width:992px){
@@ -428,7 +435,7 @@ body.dark .switch-thumb{
 
   .nav-links{
     position:absolute;
-    top:85px;
+    top:65px;
     right:-100%;
 
     flex-direction:column;
@@ -568,6 +575,13 @@ body.dark .switch-thumb{
     padding:12px 20px;
     font-size:0.95rem;
   }
+
+  .contact-page-section {
+  padding: 25px 3% 100px 3%;
+}
+
+
+
 }
 
 /* ================= TOAST ================= */
