@@ -501,7 +501,7 @@ body.dark .featured-project {
 @media (max-width: 480px) {
 
     .projects-section {
-        margin-top: -10rem;
+        margin-top: -9.2rem;
     }
 
     .project-nav {
