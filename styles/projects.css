@@ -490,3 +490,35 @@ background: rgba(255,255,255,0.08);
 body.dark .featured-project {
     border: 1px solid rgba(255,140,0,0.45);
 }
+
+
+@media (max-width: 480px) {
+
+    .project-nav {
+
+        padding: 0 1px;
+
+        top: 58%;
+    }
+
+    .project-nav button {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 0.85rem;
+    }
+
+    #scrollLeft,
+    #scrollRight {
+
+        transform: none;
+    }
+
+    #scrollLeft:hover,
+    #scrollRight:hover {
+
+        transform: scale(1.08);
+    }
+}
