@@ -1,6 +1,6 @@
 .footer {
-    background-color: #0f172a;
-    color: #fff;
+    background: linear-gradient(#1a120b);
+    color: #b8a294;
     text-align: center;
     padding: 2.5rem 1rem;
     margin-bottom: 0;
@@ -9,7 +9,7 @@
   .footer-name {
     font-size: 1.30rem;
     font-weight: bold;
-    color: #0066ff; /* Purple */
+    color: #ff9354; /* Purple */
     margin-bottom: 1rem;
   }
   
@@ -25,7 +25,7 @@
   }
   
   .footer-links a {
-    color: #ccc;
+    color: #b8a294;
     text-decoration: none;
     font-size: 1.15rem;
     font-weight: 500;
@@ -33,7 +33,7 @@
   }
   
   .footer-links a:hover {
-    color: #0066ff;
+    color: #ff9354;
   }
   
   .footer-social {
@@ -41,7 +41,7 @@
   }
   
   .footer-social a {
-    color: #ccc;
+    color: #b8a294;
     font-size: 1.4rem;
     text-decoration: none;
     margin: 0 0.6rem;
@@ -49,7 +49,7 @@
   }
   
   .footer-social a:hover {
-    color: #0066ff;
+    color: ff9354;
   }
   
   .footer-copy {

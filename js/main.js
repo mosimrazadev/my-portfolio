@@ -145,7 +145,7 @@ window.addEventListener("scroll", () => {
 
     // === Typing Effect ===
     const typing = document.getElementById('typing');
-    const roles = ["Full Stack Developer", "Web Developer", "UI/UX Designer"];
+    const roles = ["Full Stack Developer", "Web Developer", "React.js Developer", "Software Engineer"];
     let index = 0;
     let charIndex = 0;
     let deleting = false;
